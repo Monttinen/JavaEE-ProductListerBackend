@@ -22,7 +22,7 @@ public class CategoryService implements ICategoryService{
 	public List<Category> getCategories() {
 		em.getTransaction().begin();
 		
-		List<Category> result = em.createQuery("from Category", Category.class).getResultList();
+		List<Category> result = em.createQuery("from Category where CategoryParentId=-1", Category.class).getResultList();
 		em.getTransaction().commit();
 		
 		return result;
@@ -32,7 +32,7 @@ public class CategoryService implements ICategoryService{
 	public List<Category> getCategories(int categoryId) {
 		em.getTransaction().begin();
 		
-		List<Category> result = em.createQuery("from Category where idCategory="+categoryId, Category.class).getResultList();
+		List<Category> result = em.createQuery("from Category where CategoryParentId="+categoryId, Category.class).getResultList();
 		em.getTransaction().commit();
 		
 		return result;

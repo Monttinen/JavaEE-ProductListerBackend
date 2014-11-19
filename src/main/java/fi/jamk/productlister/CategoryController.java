@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import fi.jamk.productlister.service.CategoryService;
+import java.util.HashMap;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -22,7 +23,7 @@ public class CategoryController {
 	private CategoryService categoryService = new CategoryService();
 
 	@RequestMapping("/category")
-	public List<Category> getCategorys(@RequestParam(value = "categoryId", required = false,
+	public HashMap<String,Object> getCategorys(@RequestParam(value = "categoryId", required = false,
 			defaultValue = "") String categoryIdString) {
 
 		System.out.println("Got a request to list categories, categoryId=" + categoryIdString);
@@ -33,6 +34,9 @@ public class CategoryController {
 		} else {
 			list = categoryService.getCategories();
 		}
-		return list;
+		HashMap<String,Object> result = new HashMap<String, Object>();
+		result.put("Success", "1");
+		result.put("Categories", list);
+		return result;
 	}
 }

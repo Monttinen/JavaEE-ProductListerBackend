@@ -23,17 +23,21 @@ public class ProductController {
 	private ProductService productService = new ProductService();
 
 	@RequestMapping("/products")
-	public List<Product> getProducts(@RequestParam(value = "keyword", required = false,
+	public HashMap<String, Object> getProducts(@RequestParam(value = "keyword", required = false,
 			defaultValue = "") String keyword) {
+		HashMap<String, Object> result = new HashMap<String, Object>();
 
 		System.out.println("Got a request to list products, keyword=" + keyword);
 		List<Product> list = productService.getProducts(keyword);
-		return list;
+		
+		result.put("Success", "1");
+		result.put("Products", list);
+		return result;
 	}
 
 	@RequestMapping("/addproduct")
-	public HashMap<String, String> addProduct(@RequestBody Product p) {
-		HashMap<String, String> result = new HashMap<String, String>();
+	public HashMap<String, Object> addProduct(@RequestBody Product p) {
+		HashMap<String, Object> result = new HashMap<String, Object>();
 		System.out.println("Got a request to add product: " + p);
 		try {
 			productService.addProduct(p);
