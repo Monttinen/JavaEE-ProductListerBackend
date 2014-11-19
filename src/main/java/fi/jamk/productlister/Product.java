@@ -1,27 +1,29 @@
 package fi.jamk.productlister;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 import javax.persistence.*;
 
 
 @Entity
-@Table
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"ProductName"}))
 public class Product implements Serializable {
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@JsonProperty
 	private int idProduct;
+	@JsonProperty
 	private int ProductCategoryId;
+	@JsonProperty
 	private String ProductName;
+	@JsonProperty
 	private String ProductBarcode;
 
-	public Product() {
-	}
-	
-	public Product(int cateogryId, String name, String barcode){
+	/*public Product(int cateogryId, String name, String barcode){
 		this.ProductBarcode = barcode;
 		this.ProductName = name;
 		this.ProductCategoryId = cateogryId;
-	}
+	}*/
 	
 	public int getProductId(){
 		return idProduct;
@@ -41,6 +43,6 @@ public class Product implements Serializable {
 	
 	@Override
 	public String toString(){
-		return ProductName;
+		return "id: "+idProduct+", name: "+ProductName+", categoryId: "+ProductCategoryId+", barcode: "+ProductBarcode;
 	}
 }

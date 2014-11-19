@@ -12,5 +12,5 @@ import java.util.List;
 public interface IProductService {
 	public List<Product> getProducts();
 	public List<Product> getProducts(String keyword);
-	public void addProduct(Product p);
+	public void addProduct(Product p) throws Exception;
 }

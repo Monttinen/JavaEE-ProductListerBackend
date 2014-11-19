@@ -41,9 +41,9 @@ public class ProductServiceTest {
 	//
 	// @Test
 	// public void hello() {}
-	@Test
+	/*@Test
 	public void test(){
 		ProductService productService = new ProductService();
 		productService.addProduct(new Product(2,"TestBeeeer2",""));
-	}
+	}*/
 }
