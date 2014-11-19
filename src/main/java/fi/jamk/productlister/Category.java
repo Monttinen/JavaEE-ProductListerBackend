@@ -2,6 +2,7 @@ package fi.jamk.productlister;
 
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 import javax.persistence.*;
 
@@ -11,16 +12,20 @@ import javax.persistence.*;
 public class Category implements Serializable {
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@JsonProperty("idCategory")
 	private int idCategory;
+	@JsonProperty("CategoryName")
 	private String CategoryName;
+	@JsonProperty("CategoryParentId")
 	private int CategoryParentId;
+	@JsonProperty("CategoryDescription")
 	private String CategoryDescription;
 
-	public Category(String name, int parentId, String description){
+	/*public Category(String name, int parentId, String description){
 		this.CategoryName = name;
 		this.CategoryParentId = parentId;
 		this.CategoryDescription = description;
-	}
+	}*/
 	
 	public String getCategoryName(){
 		return CategoryName;

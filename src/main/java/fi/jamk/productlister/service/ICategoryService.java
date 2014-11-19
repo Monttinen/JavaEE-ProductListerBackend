@@ -11,5 +11,5 @@ import java.util.List;
  */
 public interface ICategoryService {
 	public List<Category> getCategories();
-	public List<Category> getSubCategory(Category c);
+	public List<Category> getCategories(int categoryId);
 }

@@ -29,10 +29,10 @@ public class CategoryService implements ICategoryService{
 	}
 
 	@Override
-	public List<Category> getSubCategory(Category sc) {
+	public List<Category> getCategories(int categoryId) {
 		em.getTransaction().begin();
 		
-		List<Category> result = em.createQuery("from Category where idCategory="+sc.getCategoryParentId(), Category.class).getResultList();
+		List<Category> result = em.createQuery("from Category where idCategory="+categoryId, Category.class).getResultList();
 		em.getTransaction().commit();
 		
 		return result;
