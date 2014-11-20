@@ -10,6 +10,7 @@
 	<artifactId>ProductLister</artifactId>
 	<groupId>fi.jamk</groupId>
 	<version>0.1</version>
+	<packaging>war</packaging>
 	<properties>
 		<main.basedir>${basedir}/../..</main.basedir>
 	</properties>
@@ -70,5 +71,6 @@
 				<directory>src/main/resources</directory>
 			</resource>
 		</resources>
+		<finalName>productlister</finalName>
 	</build>
 </project>
