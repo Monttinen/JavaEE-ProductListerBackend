@@ -18,7 +18,7 @@ public class CategoryService implements ICategoryService{
 		
 		em.getTransaction().begin();
 		
-		List<Category> result = em.createQuery("from Category where CategoryParentId=-1", Category.class).getResultList();
+		List<Category> result = em.createQuery("from Category where CategoryParentId=0", Category.class).getResultList();
 		em.getTransaction().commit();
 		
 		em.close();
