@@ -1,5 +1,6 @@
 package fi.jamk.productlister;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import javax.persistence.*;
 
@@ -20,6 +21,7 @@ public class Product implements Serializable {
 	public Product() {
 	}
 	
+	@JsonIgnore
 	public Product(int categoryId, String name, String barcode){
 		this.ProductCategoryId = categoryId;
 		this.ProductName = name;

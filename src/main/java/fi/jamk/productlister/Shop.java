@@ -2,6 +2,7 @@ package fi.jamk.productlister;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import javax.persistence.*;
 
@@ -22,6 +23,7 @@ public class Shop implements Serializable {
 	public Shop() {
 	}
 	
+	@JsonIgnore
 	public Shop(String name, String address, String location){
 		this.ShopName = name;
 		this.ShopAddress = address;
