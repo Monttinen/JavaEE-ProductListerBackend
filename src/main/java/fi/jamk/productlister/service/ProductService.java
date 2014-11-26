@@ -87,4 +87,21 @@ public class ProductService implements IProductService {
 			throw new Exception("Product already exists in database.");
 		}
 	}
+	
+	/**
+	 * Checks if a product with specified productId exists in the database.
+	 * @param productId
+	 * @return boolean
+	 */
+	public boolean checkProduct(int productId){
+		EntityManager em = EMHelper.getEM();
+		em.getTransaction().begin();
+		Product p = null;
+		p = em.find(Product.class, productId);
+		if(p == null){
+			return false;
+		} else {
+			return true;
+		}
+	}
 }
