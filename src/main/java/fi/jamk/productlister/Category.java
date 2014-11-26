@@ -21,11 +21,14 @@ public class Category implements Serializable {
 	@JsonProperty("CategoryDescription")
 	private String CategoryDescription;
 
-	/*public Category(String name, int parentId, String description){
+	public Category() {
+	}
+
+	public Category(String name, int parentId, String description){
 		this.CategoryName = name;
 		this.CategoryParentId = parentId;
 		this.CategoryDescription = description;
-	}*/
+	}
 	
 	public String getCategoryName(){
 		return CategoryName;

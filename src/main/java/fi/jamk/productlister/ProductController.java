@@ -18,10 +18,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/data")
 public class ProductController {
-
-	//@Autowired
 	private ProductService productService = new ProductService();
-
+	
+	/**
+	 * Gets a list of products based on keyword.
+	 * @param keyword
+	 * @return JSON list of products.
+	 */
 	@RequestMapping("/products")
 	public HashMap<String, Object> getProducts(@RequestParam(value = "keyword", required = false,
 			defaultValue = "") String keyword) {
@@ -40,7 +43,7 @@ public class ProductController {
 	 * Accepts a product as JSON and attempts to save it to database.
 	 * After success returns the product id for uploading image.
 	 * @param p
-	 * @return saved productId
+	 * @return JSON saved productId
 	 */
 	@RequestMapping("/addproduct")
 	public HashMap<String, Object> addProduct(@RequestBody Product p) {
