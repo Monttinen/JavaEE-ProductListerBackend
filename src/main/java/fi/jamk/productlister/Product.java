@@ -1,6 +1,5 @@
 package fi.jamk.productlister;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 import javax.persistence.*;
 
@@ -13,13 +12,9 @@ import javax.persistence.*;
 public class Product implements Serializable {
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-	@JsonProperty
 	private int idProduct;
-	@JsonProperty
 	private int ProductCategoryId;
-	@JsonProperty
 	private String ProductName;
-	@JsonProperty
 	private String ProductBarcode;
 
 	public Product() {
