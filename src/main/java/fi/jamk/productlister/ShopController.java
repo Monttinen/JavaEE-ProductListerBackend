@@ -45,8 +45,8 @@ public class ShopController {
 		List<Shop> list;
 		list = shopService.getShops();
 		
-		result.put("Success", "1");
-		result.put("Shops", list);
+		result.put("success", "1");
+		result.put("shops", list);
 		return result;
 	}
 	
@@ -64,11 +64,11 @@ public class ShopController {
 			
 			Shop s = shopService.getShopId(shopId);
 			
-			result.put("Success", "1");
-			result.put("Shop", s);
+			result.put("success", "1");
+			result.put("shop", s);
 		} catch (Exception e) {
-			result.put("Success", "0");
-			result.put("Message", e.getMessage());
+			result.put("success", "0");
+			result.put("message", e.getMessage());
 		}
 		
 		return result;

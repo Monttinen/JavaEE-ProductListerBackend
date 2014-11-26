@@ -45,8 +45,8 @@ public class ProductController {
 			list = productService.getProducts();
 		}
 		
-		result.put("Success", "1");
-		result.put("Products", list);
+		result.put("success", "1");
+		result.put("products", list);
 		return result;
 	}
 	

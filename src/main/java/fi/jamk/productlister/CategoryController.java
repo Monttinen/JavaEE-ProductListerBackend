@@ -35,8 +35,8 @@ public class CategoryController {
 			list = categoryService.getCategories();
 		}
 		HashMap<String,Object> result = new HashMap<String, Object>();
-		result.put("Success", "1");
-		result.put("Categories", list);
+		result.put("success", "1");
+		result.put("categories", list);
 		return result;
 	}
 }
