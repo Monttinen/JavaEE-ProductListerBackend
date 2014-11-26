@@ -34,7 +34,14 @@ public class ProductController {
 		result.put("Products", list);
 		return result;
 	}
-
+	
+	
+	/**
+	 * Accepts a product as JSON and attempts to save it to database.
+	 * After success returns the product id for uploading image.
+	 * @param p
+	 * @return saved productId
+	 */
 	@RequestMapping("/addproduct")
 	public HashMap<String, Object> addProduct(@RequestBody Product p) {
 		HashMap<String, Object> result = new HashMap<String, Object>();
@@ -47,6 +54,7 @@ public class ProductController {
 			return result;
 		}
 		result.put("success", "1");
+		result.put("productid", p.getProductId());
 		return result;
 	}
 }

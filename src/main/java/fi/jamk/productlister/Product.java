@@ -18,12 +18,6 @@ public class Product implements Serializable {
 	private String ProductName;
 	@JsonProperty
 	private String ProductBarcode;
-
-	/*public Product(int cateogryId, String name, String barcode){
-		this.ProductBarcode = barcode;
-		this.ProductName = name;
-		this.ProductCategoryId = cateogryId;
-	}*/
 	
 	public int getProductId(){
 		return idProduct;
@@ -40,7 +34,7 @@ public class Product implements Serializable {
 	public String getProductBarcode(){
 		return ProductBarcode;
 	}
-	
+
 	@Override
 	public String toString(){
 		return "id: "+idProduct+", name: "+ProductName+", categoryId: "+ProductCategoryId+", barcode: "+ProductBarcode;
