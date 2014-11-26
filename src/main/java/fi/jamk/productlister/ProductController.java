@@ -23,8 +23,8 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/data")
 public class ProductController {
 	// Change this to correspond your web servers folder.
-	//private final String imgPath = "/var/www/html/img/";  
-	private final String imgPath = "D:\\xampp\\htdocs\\img\\";
+	//private final String imgPath = "D:\\xampp\\htdocs\\img\\";
+	private final String imgPath = "/var/www/html/img/";
 	private final ProductService productService = new ProductService();
 	
 	/**
