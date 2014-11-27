@@ -19,8 +19,12 @@ public class ProductService implements IProductService {
 	public ProductService(){
 		EntityManager em = EMHelper.getEM();
 		em.getTransaction().begin();
+		Product p1 = new Product();
+		p1.setProductBarcode("");
+		p1.setProductCategoryId(2); // cannot be sure about the category id this way
+		p1.setProductName("DefaultOlut");
 		
-		em.persist(new Product(2,"DefaultOlut",""));
+		em.persist(p1);
 		
 		em.getTransaction().commit();
 		

@@ -5,7 +5,6 @@ package fi.jamk.productlister;
 import fi.jamk.productlister.service.ShopService;
 import java.util.HashMap;
 import java.util.List;
-import javax.persistence.EntityManager;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,18 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/data")
 public class ShopController {
 	private final ShopService shopService = new ShopService();
-	
-	/**
-	 * Adds some hard coded shops for testing.
-	 */
-	public ShopController(){
-		EntityManager em = EMHelper.getEM();
-		em.getTransaction().begin();
-		em.persist(new Shop("S-Market Kuokkala", "Syöttäjänkatu 2, 40520 Jyväskylä", "62.2276882,25.7733703"));
-		em.persist(new Shop("K-Supermarket Kotikenttä", "Syöttäjänkatu 2, 40520 Jyväskylä", "62.2276882,25.7733703"));
-		em.getTransaction().commit();
-		em.close();
-	}
 	
 	/**
 	 * Gets a list of shops.

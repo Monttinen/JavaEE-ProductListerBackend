@@ -12,7 +12,29 @@ import javax.persistence.EntityManager;
  * @author Antti Minkkinen
  */
 public class ShopService implements IShopService {
-
+	
+	/**
+	 * Adds some hard coded shops for testing.
+	 */
+	public ShopService(){
+		EntityManager em = EMHelper.getEM();
+		em.getTransaction().begin();
+		Shop s1 = new Shop();
+		s1.setShopAddress("Syöttäjänkatu 2, 40520 Jyväskylä");
+		s1.setShopLocation("62.2276882,25.7733703");
+		s1.setShopName("S-Market Kuokkala");
+		em.persist(s1);
+		
+		Shop s2 = new Shop();
+		s2.setShopAddress("Syöttäjänkatu 2, 40520 Jyväskylä");
+		s2.setShopLocation("62.2276882,25.7733703");
+		s2.setShopName("K-Supermarket Kotikenttä");
+		
+		em.persist(s2);
+		em.getTransaction().commit();
+		em.close();
+	}
+	
 	@Override
 	public List<Shop> getShops() {
 		EntityManager em = EMHelper.getEM();

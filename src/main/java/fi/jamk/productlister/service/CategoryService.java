@@ -18,9 +18,24 @@ public class CategoryService implements ICategoryService{
 	public CategoryService(){
 		EntityManager em = EMHelper.getEM();
 		em.getTransaction().begin();
-		em.persist(new Category("Juoma", 0, "Juomat"));
-		em.persist(new Category("Olut", 1, "Oluet")); // NOTE: parentId might not work like this.
-		em.persist(new Category("Ruoka", 0, "Ruoka tuotteet"));
+		
+		Category c1 = new Category();
+		c1.setCategoryDescription("Juomat");
+		c1.setCategoryName("Juoma");
+		c1.setCategoryParentId(0);
+		em.persist(c1);
+		
+		Category c2 = new Category();
+		c2.setCategoryDescription("Oluet");
+		c2.setCategoryName("Olut");
+		c2.setCategoryParentId(1);
+		em.persist(c2); // NOTE: parentId might not work like this.
+		
+		Category c3 = new Category();
+		c3.setCategoryDescription("Ruoka tuotteet");
+		c3.setCategoryName("Ruoka");
+		c3.setCategoryParentId(0);
+		em.persist(c3);
 		
 		em.getTransaction().commit();
 		em.close();

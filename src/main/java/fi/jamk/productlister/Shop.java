@@ -1,8 +1,5 @@
 package fi.jamk.productlister;
 
-
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import javax.persistence.*;
 
@@ -22,14 +19,7 @@ public class Shop implements Serializable {
 
 	public Shop() {
 	}
-	
-	@JsonIgnore
-	public Shop(String name, String address, String location){
-		this.ShopName = name;
-		this.ShopAddress = address;
-		this.ShopLocation = location;
-	}
-	
+
 	public int getShopId(){
 		return idShop;
 	}
@@ -45,6 +35,19 @@ public class Shop implements Serializable {
 	public String getShopLocation(){
 		return ShopLocation;
 	}
+
+	public void setShopName(String ShopName) {
+		this.ShopName = ShopName;
+	}
+
+	public void setShopAddress(String ShopAddress) {
+		this.ShopAddress = ShopAddress;
+	}
+
+	public void setShopLocation(String ShopLocation) {
+		this.ShopLocation = ShopLocation;
+	}
+	
 	
 	@Override
 	public String toString(){
