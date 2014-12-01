@@ -24,7 +24,7 @@ public class Price  implements Serializable {
 	public Price(){
 	}
 
-	public int getPriceId() {
+	public int getIdPrice() {
 		return idPrice;
 	}
 
@@ -32,7 +32,7 @@ public class Price  implements Serializable {
 		return shopId;
 	}
 
-	public int getIdProduct() {
+	public int getProductId() {
 		return productId;
 	}
 

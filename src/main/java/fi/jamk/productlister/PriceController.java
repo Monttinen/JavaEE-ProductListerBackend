@@ -65,7 +65,7 @@ public class PriceController {
 			return result;
 		}
 		result.put("success", "1");
-		result.put("priceId", p.getPriceId());
+		result.put("priceId", p.getIdPrice());
 		return result;
 	}
 }
