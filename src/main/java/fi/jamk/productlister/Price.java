@@ -1,5 +1,6 @@
 package fi.jamk.productlister;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import javax.persistence.*;
 
@@ -64,6 +65,7 @@ public class Price  implements Serializable {
 		return "Price of productId "+productId+" at shopId "+shopId+": "+"q:"+quantityPrice+" u:"+unitPrice;
 	}
 	
+	@JsonIgnore
 	public boolean isValid() throws Exception {
 		if(this.unitPrice >= 0.0 || this.quantityPrice >= 0.0){
 			return true;
