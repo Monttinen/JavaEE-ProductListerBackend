@@ -52,7 +52,7 @@ public class ShopService implements IShopService {
 		EntityManager em = EMHelper.getEM();
 		
 		em.getTransaction().begin();
-		List<Shop> result = em.createQuery("from Product p WHERE p.ProductName='" + s.getShopName()+"'", Shop.class).getResultList();
+		List<Shop> result = em.createQuery("from Shop s WHERE s.ShopName='" + s.getShopName()+"'", Shop.class).getResultList();
 		em.getTransaction().commit();
 		if (result.isEmpty()) {
 			em.getTransaction().begin();
