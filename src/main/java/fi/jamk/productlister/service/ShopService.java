@@ -6,6 +6,7 @@ import fi.jamk.productlister.EMHelper;
 import fi.jamk.productlister.Shop;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -46,13 +47,30 @@ public class ShopService implements IShopService {
 		em.close();
 		return result;
 	}
-
+	
+	@Override
+	public List<Shop> searchShops(String keyword) throws Exception {
+		EntityManager em = EMHelper.getEM();
+		em.getTransaction().begin();
+		
+		TypedQuery<Shop> query = em.createQuery("from Shop WHERE ShopName LIKE :keyword", Shop.class);
+		query.setParameter("keyword", "%"+keyword+"%");
+		List<Shop> result = query.getResultList();
+		
+		em.getTransaction().commit();
+		
+		em.close();
+		return result;
+	}
+	
 	@Override
 	public void addShop(Shop s) throws Exception {
 		EntityManager em = EMHelper.getEM();
 		
 		em.getTransaction().begin();
-		List<Shop> result = em.createQuery("from Shop s WHERE s.ShopName='" + s.getShopName()+"'", Shop.class).getResultList();
+		TypedQuery<Shop> query = em.createQuery("from Shop s WHERE s.ShopName=:shopname", Shop.class);
+		query.setParameter("shopname", "'" + s.getShopName()+"'");
+		List<Shop> result = query.getResultList();
 		em.getTransaction().commit();
 		if (result.isEmpty()) {
 			em.getTransaction().begin();
