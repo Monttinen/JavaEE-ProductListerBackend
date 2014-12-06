@@ -28,7 +28,7 @@ public class Shop implements Serializable {
 		return ShopName;
 	}
 	
-	public String getShopAdddress(){
+	public String getShopAddress(){
 		return ShopAddress;
 	}
 	
