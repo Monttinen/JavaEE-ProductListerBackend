@@ -33,34 +33,27 @@ public class ProductService implements IProductService {
 	}
 	
 	/**
-	 * Gets a list of products.
-	 * @return List<Product>
-	 */
-	@Override
-	public List<Product> getProducts() {
-		EntityManager em = EMHelper.getEM();
-		
-		em.getTransaction().begin();
-
-		List<Product> result = em.createQuery("from Product", Product.class).getResultList();
-		em.getTransaction().commit();
-		
-		em.close();
-		return result;
-	}
-	
-	/**
 	 * Gets a list of products based on keyword.
 	 * @param keyword
+	 * @param categoryId
 	 * @return List<Product>
 	 */
 	@Override
-	public List<Product> getProducts(String keyword) {
+	public List<Product> getProducts(String keyword, int categoryId) {
 		EntityManager em = EMHelper.getEM();
 		
 		em.getTransaction().begin();
-
-		TypedQuery<Product> query = em.createQuery("from Product where ProductName LIKE :keyword", Product.class);
+		String queryString;
+		
+		// TODO: get by parent categoryId also
+		
+		if(categoryId>0){
+			queryString = "from Product where ProductName LIKE :keyword AND ProductCategoryId = " + categoryId;
+		} else {
+			queryString = "from Product where ProductName LIKE :keyword";
+		}
+		
+		TypedQuery<Product> query = em.createQuery(queryString, Product.class);
 		query.setParameter("keyword", "%" + keyword + "%");
 
 		List<Product> result = query.getResultList();

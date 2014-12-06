@@ -48,11 +48,7 @@ public class ProductController {
 			categoryId = Integer.parseInt(categoryIdString);
 
 			List<Product> list;
-			if (keyword.length() > 0) {
-				list = productService.getProducts(keyword);
-			} else {
-				list = productService.getProducts();
-			}
+			list = productService.getProducts(keyword, categoryId);
 
 			result.put("success", "1");
 			result.put("products", list);
