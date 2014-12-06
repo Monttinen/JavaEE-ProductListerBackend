@@ -2,7 +2,7 @@
  */
 package fi.jamk.productlister.service;
 
-import fi.jamk.productlister.Price;
+import fi.jamk.productlister.model.Price;
 import java.util.List;
 
 /**

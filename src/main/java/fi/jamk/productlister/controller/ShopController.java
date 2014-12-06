@@ -1,8 +1,9 @@
 /*
  */
-package fi.jamk.productlister;
+package fi.jamk.productlister.controller;
 
-import fi.jamk.productlister.service.ShopService;
+import fi.jamk.productlister.model.Shop;
+import fi.jamk.productlister.service.impl.ShopService;
 import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;

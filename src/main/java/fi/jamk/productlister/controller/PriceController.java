@@ -1,8 +1,9 @@
 /*
  */
-package fi.jamk.productlister;
+package fi.jamk.productlister.controller;
 
-import fi.jamk.productlister.service.PriceService;
+import fi.jamk.productlister.model.Price;
+import fi.jamk.productlister.service.impl.PriceService;
 import java.util.HashMap;
 import java.util.List;
 import org.springframework.web.bind.annotation.RequestBody;

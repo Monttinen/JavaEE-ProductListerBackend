@@ -1,9 +1,10 @@
 /*
  */
-package fi.jamk.productlister.service;
+package fi.jamk.productlister.service.impl;
 
-import fi.jamk.productlister.Category;
+import fi.jamk.productlister.model.Category;
 import fi.jamk.productlister.EMHelper;
+import fi.jamk.productlister.service.ICategoryService;
 import java.util.List;
 import javax.persistence.EntityManager;
 
