@@ -7,6 +7,7 @@ import fi.jamk.productlister.service.impl.ProductService;
 import java.io.File;
 import java.util.HashMap;
 import java.util.List;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
  *
  * @author Antti Minkkinen
  */
+@Controller
 @RestController
 @RequestMapping("/data")
 public class ProductController {
