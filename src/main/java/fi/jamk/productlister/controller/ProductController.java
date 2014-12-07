@@ -3,10 +3,14 @@
 package fi.jamk.productlister.controller;
 
 import fi.jamk.productlister.model.Product;
+import fi.jamk.productlister.model.ProductImage;
 import fi.jamk.productlister.service.impl.ProductService;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -75,13 +79,14 @@ public class ProductController {
 		System.out.println("Got a request to add product: " + p);
 		try {
 			productService.addProduct(p);
+
+			result.put("success", "1");
+			result.put("productid", p.getProductId());
 		} catch (Exception ex) {
 			result.put("success", "0");
 			result.put("message", ex.getMessage());
 			return result;
 		}
-		result.put("success", "1");
-		result.put("productid", p.getProductId());
 		return result;
 	}
 
@@ -155,5 +160,51 @@ public class ProductController {
 		}
 
 		return result;
+	}
+	
+	/**
+	 * Accepts a product image as JSON
+	 * @param p
+	 * @return 
+	 */
+	@RequestMapping(value = "/addproductimage")
+	public HashMap<String, Object> addProductImage(@RequestBody ProductImage p) {
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {
+			// make sure that someone added a product with that id already
+			if (!productService.checkProduct(p.getProductId())) {
+				throw new Exception("The product does not exists.");
+			}
+			File f = new File(imgPath + p.getProductId() + ".jpg");
+			if (f.exists()) {
+				throw new Exception("The file already exists.");
+			}
+
+			try {
+				//This will decode the String which is encoded by using Base64 class
+				byte[] imageByte = Base64.decodeBase64(p.getProductImage());
+
+				String directory = imgPath + p.getProductId() + ".jpg";
+
+				System.out.println("Writing image file: " + directory);
+				FileOutputStream fos = new FileOutputStream(directory);
+				fos.write(imageByte);
+				fos.close();
+				
+				result.put("success", "1");
+				result.put("productid", p.getProductId());
+			} catch (Exception e) {
+				System.out.println("Writing image file failed");
+				result.put("success", "0");
+				result.put("message", "You failed to upload image => " + e.getMessage());
+			}
+		} catch (Exception ex) {
+			result.put("success", "0");
+			result.put("message", ex.getMessage());
+			return result;
+		}
+
+		return result;
+
 	}
 }
