@@ -4,17 +4,24 @@ ProductLister
 Info & Technologies
 ===================
 This is a REST backend for an Android application.
+
 SpringBoot is used to run the application and Jackson is used for converting
 data to and back from JSON format.
+
 The system uses Hibernate to connect to a MySQL database and store entities.
+
 SpringBoot uses integrated Tomcat server for running the application.
+
 The development IDE was Netbeans 8.0.1
 
 Requirements
 ============
 Java 8
+
 Maven for building
+
 A MySQL databse running in localhost, connection details in persistance.xml
+
 
 Installation
 ============
