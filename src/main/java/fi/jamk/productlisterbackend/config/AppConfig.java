@@ -1,6 +1,6 @@
 /*
  */
-package fi.jamk.productlister.config;
+package fi.jamk.productlisterbackend.config;
 
 import javax.sql.DataSource;
 
@@ -15,7 +15,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  * @author Antti Minkkinen
  */
 @Configuration
-@ComponentScan("fi.jamk.productlister")
+@ComponentScan("fi.jamk.productlisterbackend")
 @EnableWebMvc
 public class AppConfig {
 

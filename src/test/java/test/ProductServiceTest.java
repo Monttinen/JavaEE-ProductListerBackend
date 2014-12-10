@@ -2,8 +2,8 @@
  */
 package test;
 
-import fi.jamk.productlister.model.Product;
-import fi.jamk.productlister.service.impl.ProductService;
+import fi.jamk.productlisterbackend.model.Product;
+import fi.jamk.productlisterbackend.service.impl.ProductService;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

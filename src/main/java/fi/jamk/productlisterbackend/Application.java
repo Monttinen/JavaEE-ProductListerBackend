@@ -1,6 +1,6 @@
 /*
  */
-package fi.jamk.productlister;
+package fi.jamk.productlisterbackend;
 
 import javax.servlet.MultipartConfigElement;
 import org.springframework.boot.SpringApplication;

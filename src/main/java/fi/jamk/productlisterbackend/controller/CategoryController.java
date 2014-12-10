@@ -1,14 +1,14 @@
 /*
  */
-package fi.jamk.productlister.controller;
+package fi.jamk.productlisterbackend.controller;
 
-import fi.jamk.productlister.model.Category;
+import fi.jamk.productlisterbackend.model.Category;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import fi.jamk.productlister.service.impl.CategoryService;
+import fi.jamk.productlisterbackend.service.impl.CategoryService;
 import java.util.HashMap;
 import org.springframework.web.bind.annotation.RestController;
 

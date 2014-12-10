@@ -1,4 +1,4 @@
-package fi.jamk.productlister.model;
+package fi.jamk.productlisterbackend.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;

@@ -1,8 +1,8 @@
 /*
  */
-package fi.jamk.productlister.service;
+package fi.jamk.productlisterbackend.service;
 
-import fi.jamk.productlister.model.Product;
+import fi.jamk.productlisterbackend.model.Product;
 import java.util.List;
 
 /**

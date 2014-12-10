@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-  <persistence-unit name="fi.jamk.productlister.pu" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="fi.jamk.productlisterbackend.pu" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
-    <class>fi.jamk.productlister.model.Product</class>
-    <class>fi.jamk.productlister.model.Category</class>
-    <class>fi.jamk.productlister.model.Shop</class>
+    <class>fi.jamk.productlisterbackend.model.Shop</class>
+    <class>fi.jamk.productlisterbackend.model.Product</class>
+    <class>fi.jamk.productlisterbackend.model.Category</class>
+    <class>fi.jamk.productlisterbackend.model.Price</class>
+    <class>fi.jamk.productlisterbackend.model.ProductImage</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/productdb?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="dbuser"/>

@@ -1,10 +1,10 @@
 /*
  */
-package fi.jamk.productlister.controller;
+package fi.jamk.productlisterbackend.controller;
 
-import fi.jamk.productlister.model.Product;
-import fi.jamk.productlister.model.ProductImage;
-import fi.jamk.productlister.service.impl.ProductService;
+import fi.jamk.productlisterbackend.model.Product;
+import fi.jamk.productlisterbackend.model.ProductImage;
+import fi.jamk.productlisterbackend.service.impl.ProductService;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.HashMap;

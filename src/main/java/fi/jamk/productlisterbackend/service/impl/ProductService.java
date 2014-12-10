@@ -1,10 +1,10 @@
 /*
  */
-package fi.jamk.productlister.service.impl;
+package fi.jamk.productlisterbackend.service.impl;
 
-import fi.jamk.productlister.EMHelper;
-import fi.jamk.productlister.model.Product;
-import fi.jamk.productlister.service.IProductService;
+import fi.jamk.productlisterbackend.EMHelper;
+import fi.jamk.productlisterbackend.model.Product;
+import fi.jamk.productlisterbackend.service.IProductService;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;

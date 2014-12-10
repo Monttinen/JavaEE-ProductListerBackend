@@ -1,4 +1,4 @@
-package fi.jamk.productlister.model;
+package fi.jamk.productlisterbackend.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
