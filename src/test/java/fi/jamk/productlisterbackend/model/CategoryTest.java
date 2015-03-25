@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package fi.jamk.productlisterbackend.model;
 
 import org.junit.After;
@@ -45,11 +39,10 @@ public class CategoryTest {
     public void testGetCategoryName() {
         System.out.println("getCategoryName");
         Category instance = new Category();
-        String expResult = "";
+        instance.setCategoryName("testiKategoria");
+        String expResult = "testiKategoria";
         String result = instance.getCategoryName();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -59,11 +52,10 @@ public class CategoryTest {
     public void testGetCategoryDescription() {
         System.out.println("getCategoryDescription");
         Category instance = new Category();
-        String expResult = "";
+        instance.setCategoryDescription("kuvaus testi kategorialle");
+        String expResult = "kuvaus testi kategorialle";
         String result = instance.getCategoryDescription();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -73,26 +65,24 @@ public class CategoryTest {
     public void testGetCategoryParentId() {
         System.out.println("getCategoryParentId");
         Category instance = new Category();
+        instance.setCategoryParentId(0);
         int expResult = 0;
         int result = instance.getCategoryParentId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      * Test of getCategoryId method, of class Category.
+     * Cannot currently test this as category id is gotten from database
      */
-    @Test
+    /*@Test
     public void testGetCategoryId() {
         System.out.println("getCategoryId");
         Category instance = new Category();
-        int expResult = 0;
+        int expResult = 1; // TODO: get from db when creating
         int result = instance.getCategoryId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    }*/
 
     /**
      * Test of setCategoryName method, of class Category.
@@ -100,11 +90,10 @@ public class CategoryTest {
     @Test
     public void testSetCategoryName() {
         System.out.println("setCategoryName");
-        String CategoryName = "";
+        String CategoryName = "setCategoryName";
         Category instance = new Category();
         instance.setCategoryName(CategoryName);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(CategoryName, instance.getCategoryName());
     }
 
     /**
@@ -116,8 +105,7 @@ public class CategoryTest {
         int CategoryParentId = 0;
         Category instance = new Category();
         instance.setCategoryParentId(CategoryParentId);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(CategoryParentId, instance.getCategoryId());
     }
 
     /**
@@ -126,11 +114,10 @@ public class CategoryTest {
     @Test
     public void testSetCategoryDescription() {
         System.out.println("setCategoryDescription");
-        String CategoryDescription = "";
+        String CategoryDescription = "testDescription";
         Category instance = new Category();
         instance.setCategoryDescription(CategoryDescription);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(CategoryDescription, instance.getCategoryDescription());
     }
 
     /**
@@ -140,11 +127,12 @@ public class CategoryTest {
     public void testToString() {
         System.out.println("toString");
         Category instance = new Category();
-        String expResult = "";
+        instance.setCategoryDescription("desc");
+        instance.setCategoryName("name");
+        instance.setCategoryParentId(0);
+        
+        String expResult = "name";
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-    
 }

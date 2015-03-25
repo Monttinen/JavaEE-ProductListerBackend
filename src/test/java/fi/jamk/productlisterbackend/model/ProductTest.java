@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package fi.jamk.productlisterbackend.model;
 
 import org.junit.After;
@@ -48,8 +42,6 @@ public class ProductTest {
         int expResult = 0;
         int result = instance.getProductId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -59,11 +51,10 @@ public class ProductTest {
     public void testGetProductCategoryId() {
         System.out.println("getProductCategoryId");
         Product instance = new Product();
-        int expResult = 0;
+        instance.setProductCategoryId(123);
+        int expResult = 123;
         int result = instance.getProductCategoryId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -73,11 +64,10 @@ public class ProductTest {
     public void testGetProductName() {
         System.out.println("getProductName");
         Product instance = new Product();
-        String expResult = "";
+        instance.setProductName("tuote1");
+        String expResult = "tuote1";
         String result = instance.getProductName();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -87,11 +77,10 @@ public class ProductTest {
     public void testGetProductBarcode() {
         System.out.println("getProductBarcode");
         Product instance = new Product();
-        String expResult = "";
+        instance.setProductBarcode("123332");
+        String expResult = "123332";
         String result = instance.getProductBarcode();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -100,11 +89,10 @@ public class ProductTest {
     @Test
     public void testSetProductCategoryId() {
         System.out.println("setProductCategoryId");
-        int ProductCategoryId = 0;
+        int ProductCategoryId = 23;
         Product instance = new Product();
         instance.setProductCategoryId(ProductCategoryId);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(ProductCategoryId, instance.getProductCategoryId());
     }
 
     /**
@@ -113,11 +101,10 @@ public class ProductTest {
     @Test
     public void testSetProductName() {
         System.out.println("setProductName");
-        String ProductName = "";
+        String ProductName = "tuote2";
         Product instance = new Product();
         instance.setProductName(ProductName);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(ProductName, instance.getProductName());
     }
 
     /**
@@ -126,11 +113,10 @@ public class ProductTest {
     @Test
     public void testSetProductBarcode() {
         System.out.println("setProductBarcode");
-        String ProductBarcode = "";
+        String ProductBarcode = "32223";
         Product instance = new Product();
         instance.setProductBarcode(ProductBarcode);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(ProductBarcode, instance.getProductBarcode());
     }
 
     /**
@@ -140,11 +126,13 @@ public class ProductTest {
     public void testToString() {
         System.out.println("toString");
         Product instance = new Product();
-        String expResult = "";
+        instance.setProductBarcode("123");
+        instance.setProductCategoryId(44);
+        instance.setProductName("tuote33");
+        
+        String expResult = "id: "+instance.getProductId()+", name: "+instance.getProductName()+", categoryId: "+instance.getProductCategoryId()+", barcode: "+instance.getProductBarcode();
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
